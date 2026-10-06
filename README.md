@@ -1,2 +1,5 @@
-# mlops-cloud-to-edge
-MLOps architecture for model training, deployment, and inference across Cloud and Edge environments with intermittent connectivity.
+## Project Objectives
+
+Present a distributed MLOps architecture for training and retraining models in the Cloud, then deploying them for inference on embedded devices. The project aims to manage data and model exchanges despite degraded connectivity, while ensuring traceability and monitoring. Feasibility is explored using a GPU-enabled Kubernetes cluster and an NVIDIA Jetson Orin simulating the Far Edge.
+
+In this architecture, a Far Edge device, such as an onboard drone system, collects data and performs local inference using the deployed model. Newly collected data is uploaded to the Cloud when connectivity allows, then ingested, validated, preprocessed, and made available for human annotation through Label Studio. Once the annotated dataset is validated, an operator initiates model retraining in the Cloud, re-entering the AI/ML lifecycle with fresh data. The updated model is evaluated, validated, and tracked with MLflow before being distributed back to the Edge or Far Edge for subsequent local inference, completing the feedback loop.
